@@ -7,12 +7,14 @@ I try to write a doc for this project, however, I'm not native english speaker a
 point it out to me. Thank you for your correction!
 
 ## Analyze Purpose
-Nowadays, there are millions of songs released every day. What is the real hit among these trends? 
-And when I first think of this question, I find there are much more interesting points to study. For example,
-what is the trend every year and does this change related to something else? Specifically, I remember rap is not so popular in my childhood, 
-and people who like rap may be considered as a wack, but recent years more and more rap songs release and 
-become a big hit? There are many other funny facts to be discovered.  
+Nowadays, more and more people are suffering from mental issues.
+There are many rearchers focus on this topic. And in china, both government and society are concerning about mental health. So I believe it is worth diving into this study.  
+**Challenge**: When I decide to choose this topic as my final project, the most basic and important challenge is that where I can get useful data. People may hard to share their real thoughts when directly talking about some private issues. So the reliability of the dataset is difficult to ensure. Fortunately, the biggest social media "**weibo**(in China)" has a special sharing accounts "ShuDong" where people can share their real thoughts anonymously. I also carefully check recent posts (nearly one-year data), and I believe most of information and sharings are highly credible. So I finally give up the topic I chose a week ago.(2022-01-10)  
 In this project, I try to figure out several facts (including mentioned above).
+
+## Ideas(need to check)
+1. I may use jieba to do tokenization(nlp terminology)
+2. I can analyze by year and find "word of each year"
 
 ## Environment and requirements
 - all codes will be tested on Pycharm
@@ -20,4 +22,9 @@ In this project, I try to figure out several facts (including mentioned above).
 
 ## Schedule
 format: {status} {date}: {event} | {other notations}
-- [ ] (2022-01-06): wangyiyun music spider
+- [x] (2022-01-06): weibo spider
+- [x] (2022-01-10)begin crawling data
+- [ ] (2022-01-10)what to analyze?
+
+## Reference
+1. Weibo-Crawler: https://github.com/dataabc/weibo-crawler
