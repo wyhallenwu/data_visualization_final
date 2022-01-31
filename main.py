@@ -1,16 +1,26 @@
-# This is a sample Python script.
+import jieba
+import process
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    test = process.DataProcess('dataset/dataset2019.json')
+    dataset = test.fetch_data()
+    data = dataset['content']
+    seg_set = []
+    for each in data:
+        seg = jieba.cut(each)
+        for word in list(seg):
+            if len(word) < 2:
+                continue
+            else:
+                seg_set.append(word)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    # print(seg_set)
+    final = ' '.join(seg_set)
+    wc = WordCloud()
+    wc.generate(final)
+    print(wc.words_)
+    plt.imshow(wc)
+    plt.axis('off')
+    plt.show()
