@@ -1,30 +1,25 @@
-# DATA VISUALIZATION FINAL
-## Brief intro
-This is the final project of the course data visualization and human computer interaction at Shanghai University. But  actually, I'm learning followed the course Principles and Techniques of Data Science, UCB fall 2021, the course homepage is https://ds100.org/fa21/ . And also, the course DA100 has its graduate projects. The detailed information is listed in https://ds100.org/fa21/grad_proj/gradproject/. There are also other useful materials I recommand such as https://github.com/microsoft/Data-Science-For-Beginners.  
-I try to combine what I learn from these courses to make my own project practical and functional. If it can be exquisite that would great! haha :joy:  
-Enjoy it! :joy:  
-I try to write a doc for this project, however, I'm not native english speaker and weak in English writing. If you find somewhere confusing, I would appreciate it if you
-point it out to me. Thank you for your correction!
+# Data Visualization Final Project
+## Introduction
+This is the final project for course "data visualization". After changing topics repeatedly, I finally choose "metaverse tokens and cryptocurrencies" as my topic. There are obvious reasons, (1) after facebook regroup as meta, metaverse becomes a big hit. (2) metaverse tokens and currencies haven't been seriously 
+concerned(2022-02-02) (3) will metaverse be economic bubble?  
+These questions are interesting and I will try to disclose and explain some of these questions in this project. But I only know a little about economy, my analysis maybe naive and has mistakes. It doesn't matter. If you could point it out and discuss with me, I would appreciate it a lot.  
+## Dataset
+> This dataset is collected by myself, the source website is: https://coinmarketcap.com/  
+> coinmarketcap has already provide api to access some data, but it charges. So I write a rough crawler
+### Dataset structure
+I provide datasets both in csv and json format. Each file is named by its original name.  
+I collect 76 kinds tokens'(the rank100 but other 24 doesn't have 120 days data or already expired) historical data.  
+| Date | Open | High | Low | Close | Volume | Marketcap |
+| ---- | ---- | ---- | --- | ----- | ------ | --------- |
 
-## Analyze Purpose
-Nowadays, more and more people are suffering from mental issues.
-There are many rearchers focus on this topic. And in china, both government and society are concerning about mental health. So I believe it is worth diving into this study.  
-**Challenge**: When I decide to choose this topic as my final project, the most basic and important challenge is that where I can get useful data. People may hard to share their real thoughts when directly talking about some private issues. So the reliability of the dataset is difficult to ensure. Fortunately, the biggest social media "**weibo**(in China)" has a special sharing accounts "ShuDong" where people can share their real thoughts anonymously. I also carefully check recent posts (nearly one-year data), and I believe most of information and sharings are highly credible. So I finally give up the topic I chose a week ago.(2022-01-10)  
-In this project, I try to figure out several facts (including mentioned above).
+**Date**: from 2021-10-05 to 2022-02-01  
+**Volume**: 
 
-## Ideas(need to check)
-1. I may use jieba to do tokenization(nlp terminology)
-2. I can analyze by year and find "word of each year"
-
-## Environment and requirements
-- all codes will be tested on Pycharm
-- detailed requirements you can check requirements.txt which will released later
+## Usage
+I will refactor the whole project to make it more usage-friendly. I strongly you rewrite some parts of the crwaler.py because I directly use sleep(), but there are better ways. I will rewrite it later.
 
 ## Schedule
-format: {status} {date}: {event} | {other notations}
-- [x] (2022-01-06): weibo spider
-- [x] (2022-01-10)begin crawling data
-- [ ] (2022-01-10)what to analyze?
-
-## Reference
-1. Weibo-Crawler: https://github.com/dataabc/weibo-crawler
+- [x] crawler
+- [x] collect dataset
+- [ ] analyze
+- [ ] visualize

@@ -21,6 +21,7 @@ class CoinMarketCap(object):
         '''
         option = Options()
         option.add_argument('--user-data-dir=' + r'/home/wuyuheng/.config/google-chrome/')
+        # option.add_argument('headless')
         driver = webdriver.Chrome(self.path, options=option)
         return driver
 
@@ -48,8 +49,8 @@ class CoinMarketCap(object):
         dataframe.to_csv('dataset/name.csv')
 
     def read_name(self):
-        dataset = pd.read_csv('dataset/name.csv', header=0)
-        return dataset['name']
+        dataset = pd.read_csv('processed_dataset/cleaned_names.csv', header=None)
+        return dataset.iloc[:, 0]
 
     def export_history_data(self):
         '''Collect history data about metaverse tokens.
@@ -75,19 +76,24 @@ class CoinMarketCap(object):
                     continue
                 print('success {name}'.format(name=name))
 
+    def scroll_down(self, driver):
+        driver.execute_script('window.scrollBy(0,6000)')
+        ac = driver.find_element(By.XPATH, '/html/body/div/div[1]/div[1]/div[2]/div/div[3]/div/div/p[1]/button')
+        ActionChains(driver).move_to_element(ac).click(ac).perform()
+        sleep(2)
+
 
     def colloect_one_kind(self, url, name):
         driver = self.open_driver()
         driver.get(url)
-        sleep(8)
-        driver.execute_script('window.scrollBy(0,3200)')
-        ac = driver.find_element(By.XPATH, '/html/body/div/div[1]/div[1]/div[2]/div/div[3]/div/div/p[1]/button')
-        ActionChains(driver).move_to_element(ac).click(ac).perform()
-        sleep(4)
+        sleep(5)
+        self.scroll_down(driver)
+        self.scroll_down(driver)
+        self.scroll_down(driver)
         dataset = pd.DataFrame(columns=['Date', 'Open', 'High', 'Low', 'Close', 'Volume', 'MarketCap'])
-        for i in range(90):
-            if i % 10 == 0:
-                sleep(2)
+        for i in range(120):
+            if i % 30 == 0:
+                sleep(1)
             xpath = '//*[@id="__next"]/div[1]/div[1]/div[2]/div/div[3]/div/div/div[2]/table/tbody/tr[{index_}]'.format(index_=i+1)
             dataset = self.row_collect(xpath, driver, dataset)
         dataset.reset_index(inplace=True)
