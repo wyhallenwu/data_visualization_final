@@ -21,5 +21,9 @@ I will refactor the whole project to make it more usage-friendly. I strongly you
 ## Schedule
 - [x] crawler
 - [x] collect dataset
-- [ ] analyze
-- [ ] visualize
+- [x] analyze
+- [x] visualize
+- [ ] write a report
+---
+## Brief report
+TODO(2022-02-03)
