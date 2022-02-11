@@ -27,3 +27,5 @@ I will refactor the whole project to make it more usage-friendly. I strongly you
 ---
 ## Brief report
 TODO(2022-02-03)
+### Data Clean
+As I mentioned, about 24 kinds of coins don't have enough data(less than 120 days) and are abandoned. Also I find in some kinds, data item are not recorded, so I use mean value to fix.
