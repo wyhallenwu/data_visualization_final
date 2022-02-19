@@ -176,7 +176,7 @@ def close_heatmap():
 
     layout = go.Layout(title='Heatmap(date-kind-close)', titlefont=dict(size=40),
                        xaxis=dict(title='日期',  # 设置坐标轴的标签
-                                  titlefont=dict( size=20),
+                                  titlefont=dict(size=20),
                                   tickfont=dict(size=18, ),
                                   # tickangle=45,  # 刻度旋转的角度
                                   showticklabels=True,  # 是否显示坐标轴
@@ -202,6 +202,7 @@ def close_heatmap():
     fig = go.Figure(data=go.Heatmap(
         z=np.log2(close),
         y=category,
+        colorscale='Viridis'
     ),
         layout=layout
     )
