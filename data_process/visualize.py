@@ -17,7 +17,7 @@ def show_pie():
     fig.update_traces(textposition='inside', textinfo='label+percent')
     fig.update_layout(uniformtext_minsize=14, uniformtext_mode='hide')
     fig.update_layout(
-        title='市场占比',
+        title='市值占比',
         titlefont=dict(size=30)
     )
     return fig
@@ -63,7 +63,7 @@ def line_race():
                    ),
 
         # y轴的刻度和标签
-        yaxis=dict(title='price',  # 坐标轴的标签
+        yaxis=dict(title='value(dollar)',  # 坐标轴的标签
                    titlefont=dict(size=18),  # 坐标轴标签的字体及颜色
                    tickfont=dict(size=20),  # 刻度的字体大小及颜色
                    showticklabels=True,  # 设置是否显示刻度
@@ -174,7 +174,7 @@ def close_heatmap():
             close.append(dataset.iloc[:, 3])
             category.append(name)
 
-    layout = go.Layout(title='Heatmap(date-kind-close)', titlefont=dict(size=40),
+    layout = go.Layout(title='季节性规律', titlefont=dict(size=40),
                        xaxis=dict(title='日期',  # 设置坐标轴的标签
                                   titlefont=dict(size=20),
                                   tickfont=dict(size=18, ),
@@ -200,7 +200,7 @@ def close_heatmap():
                        )
 
     fig = go.Figure(data=go.Heatmap(
-        z=np.log2(close),
+        z=np.log2(close)+2,
         y=category,
         colorscale='Viridis'
     ),
